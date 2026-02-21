@@ -184,7 +184,7 @@
         function renderTasks() {
             const area = document.getElementById('taskGrid');
             area.innerHTML = '';
-            for(let i=1; i<=25; i++) {
+            for(let i=1; i<=1000; i++) {
                 let t = document.createElement('div');
                 t.className = 'task ' + (i > tasks + 1 ? 'locked' : '');
                 t.style.backgroundColor = taskColors[i-1];
