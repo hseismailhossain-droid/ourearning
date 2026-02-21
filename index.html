@@ -3,9 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-    <title>Earn Cash Pro</title>
+    <title>Earn Cash Pro - AI Bot Enabled</title>
     
-    <!-- আপনার দেওয়া ৫টি মেইন স্ক্রিপ্ট (Head Section) -->
     <script src="https://slidexperimentalimmoral.com/61/65/8c/61658ca0d6b568fc54ac8518d329592f.js"></script>
     <script src="https://slidexperimentalimmoral.com/ad/04/16/ad0416f282833e1de4ea3abee28eb897.js"></script>
     <script src="https://slidexperimentalimmoral.com/da/51/f0/da51f0e8be13617d90ff5b26937025ba.js"></script>
@@ -18,40 +17,28 @@
         .header { background: #1e272e; color: white; padding: 20px; text-align: center; border-radius: 0 0 20px 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.3); }
         .user-card { background: white; margin: -15px 15px 10px; padding: 15px; border-radius: 15px; display: flex; justify-content: space-between; font-weight: bold; box-shadow: 0 4px 12px rgba(0,0,0,0.1); }
         .bal-text { color: #05c46b; font-size: 18px; }
-        
-        /* Slider */
         .slider { width: 92%; margin: 15px auto; height: 160px; overflow: hidden; border-radius: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
         .slides { display: flex; width: 300%; height: 100%; animation: slide 10s infinite; }
         .slides img { width: 100%; height: 100%; object-fit: cover; }
         @keyframes slide { 0% {transform:translateX(0%);} 33% {transform:translateX(-100%);} 66% {transform:translateX(-200%);} 100% {transform:translateX(0%);} }
-
-        /* Ad Sections */
         .ad-container { text-align: center; margin: 10px auto; padding: 5px; background: #fff; border-radius: 10px; overflow: hidden; }
-
-        /* Tasks */
         .grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; padding: 15px; }
         .task { padding: 30px 10px; border-radius: 15px; text-align: center; color: white; font-weight: bold; cursor: pointer; transition: 0.3s; position: relative; box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
         .task.locked { background: #d2dae2 !important; color: #808e9b; cursor: not-allowed; }
         .task.locked::after { content: '🔒'; position: absolute; top: 8px; right: 10px; }
-
-        /* Withdraw */
         #withdrawView { display: none; padding: 20px; }
         .input-group { background: white; padding: 20px; border-radius: 15px; box-shadow: 0 4px 10px rgba(0,0,0,0.05); }
         .input-field { width: 100%; padding: 12px; margin: 10px 0; border: 1px solid #ddd; border-radius: 8px; outline: none; }
         .submit-btn { width: 100%; padding: 12px; background: #ff3f34; color: white; border: none; border-radius: 8px; font-weight: bold; cursor: pointer; }
-
-        /* Bottom Menu */
         .nav-bar { position: fixed; bottom: 0; width: 100%; background: white; display: flex; justify-content: space-around; padding: 12px 0; box-shadow: 0 -3px 15px rgba(0,0,0,0.1); z-index: 1000; }
         .nav-btn { text-align: center; color: #485460; font-size: 12px; cursor: pointer; }
-
-        /* Popup */
         #nameModal { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.9); display: flex; align-items: center; justify-content: center; z-index: 10001; }
         .modal-box { background: white; padding: 30px; border-radius: 20px; width: 85%; text-align: center; }
+        .tg-btn { display: block; text-align: center; color: #0088cc; text-decoration: none; margin: 10px; font-weight: bold; }
     </style>
 </head>
 <body>
 
-    <!-- ১. নেম পপআপ -->
     <div id="nameModal">
         <div class="modal-box">
             <h2>Welcome!</h2>
@@ -70,13 +57,11 @@
         <div class="bal-text">৳<span id="uBalDisplay">0.00</span></div>
     </div>
 
-    <!-- ২. অ্যাড ইউনিট: 728x90 -->
     <div class="ad-container">
         <script>atOptions = {'key' : '2f8ec2c1d78a951c06048088893ddf5a', 'format' : 'iframe', 'height' : 90, 'width' : 728, 'params' : {}};</script>
         <script src="https://slidexperimentalimmoral.com/2f8ec2c1d78a951c06048088893ddf5a/invoke.js"></script>
     </div>
 
-    <!-- Home View -->
     <div id="homeView">
         <div class="slider">
             <div class="slides">
@@ -85,25 +70,10 @@
                 <img src="https://via.placeholder.com/800x400/ff3f34/ffffff?text=Bkash+Nagad+Withdrawal" alt="S3">
             </div>
         </div>
-
-<!-- টেলিগ্রাম বাটন -->
         <a href="https://t.me/hourearning" target="_blank" class="tg-btn">📢 Join Telegram for Payment Proof</a>
-        
-        <!-- ৩. অ্যাড ইউনিট: 320x50 -->
-        <div class="ad-container">
-            <script>atOptions = {'key' : 'd78f2241e2528637f7b5ab382d988018', 'format' : 'iframe', 'height' : 50, 'width' : 320, 'params' : {}};</script>
-            <script src="https://slidexperimentalimmoral.com/d78f2241e2528637f7b5ab382d988018/invoke.js"></script>
-        </div>
-
         <div class="grid" id="taskGrid"></div>
-
-        <!-- ৪. অ্যাড ইউনিট: Container Ad -->
-        <div class="ad-container">
-            <div id="container-d07e9336b60580af4a3b18734a7dfd59"></div>
-        </div>
     </div>
 
-    <!-- Withdraw View -->
     <div id="withdrawView">
         <div class="input-group">
             <h3>Withdraw Balance</h3>
@@ -116,27 +86,8 @@
             <input type="number" id="wAmt" class="input-field" placeholder="Amount (Min 10)">
             <button class="submit-btn" onclick="handleWithdraw()">Submit Withdraw</button>
         </div>
-
-        <!-- ৫. অ্যাড ইউনিট: 300x250 -->
-        <div class="ad-container">
-            <script>atOptions = {'key' : 'e25a23c6fd865a92b18ac8a048917d2a', 'format' : 'iframe', 'height' : 250, 'width' : 300, 'params' : {}};</script>
-            <script src="https://slidexperimentalimmoral.com/e25a23c6fd865a92b18ac8a048917d2a/invoke.js"></script>
-        </div>
     </div>
 
-    <!-- ৬, ৭, ৮, ৯. অতিরিক্ত অ্যাড ইউনিট (Sidebar/Hidden for extra revenue) -->
-    <div style="display:flex; flex-wrap:wrap; justify-content:center;">
-        <script>atOptions = {'key':'f3597f8c957d468959ac3821c42527b0','format':'iframe','height':300,'width':160,'params':{}};</script>
-        <script src="https://slidexperimentalimmoral.com/f3597f8c957d468959ac3821c42527b0/invoke.js"></script>
-        
-        <script>atOptions = {'key':'d3e5a43c8038de893ae89830f2d031b4','format':'iframe','height':600,'width':160,'params':{}};</script>
-        <script src="https://slidexperimentalimmoral.com/d3e5a43c8038de893ae89830f2d031b4/invoke.js"></script>
-        
-        <script>atOptions = {'key':'80305b5f7e8ec8143a173a604f9fcbd5','format':'iframe','height':300,'width':160,'params':{}};</script>
-        <script src="https://slidexperimentalimmoral.com/80305b5f7e8ec8143a173a604f9fcbd5/invoke.js"></script>
-    </div>
-
-    <!-- Nav Menu -->
     <div class="nav-bar">
         <div class="nav-btn" onclick="changePage('home')">🏠<br>Home</div>
         <div class="nav-btn" onclick="changePage('withdraw')">💰<br>Withdraw</div>
@@ -144,26 +95,47 @@
     </div>
 
     <script>
-        // ১০, ১১, ১২. আপনার দেওয়া ৩টি ডিরেক্ট লিঙ্ক
         const directLinks = [
             "https://slidexperimentalimmoral.com/r29staxe4?key=16f55b34cec622e9ffb37327506418bc",
             "https://slidexperimentalimmoral.com/hs9kza21rc?key=ff20d7f6852c4f44ed0dd6bda5910481",
             "https://slidexperimentalimmoral.com/u9kbyd9v?key=ec1ba7d3b7eb44d0ba940dba52d1c057"
         ];
 
-        const taskColors = ["#ff5e57", "#1dd1a1", "#54a0ff", "#5f27cd", "#f368e0", "#ff9f43", "#ee5253", "#0abde3", "#10ac84", "#222f3e", "#ff6b81", "#48dbfb", "#1dd1a1", "#feca57", "#5f27cd", "#c8d6e5", "#2e86de", "#ff9ff3", "#f368e0", "#00d2d3", "#54a0ff", "#576574", "#222f3e", "#ed4c67", "#f79f1f"];
+        const taskColors = ["#ff5e57", "#1dd1a1", "#54a0ff", "#5f27cd", "#f368e0", "#ff9f43", "#ee5253", "#0abde3", "#10ac84", "#222f3e"];
 
         let user = localStorage.getItem('user_name');
         let bal = parseFloat(localStorage.getItem('user_bal')) || 0;
         let tasks = parseInt(localStorage.getItem('user_tasks')) || 0;
 
+        // --- BOT & LOGIN SYNC LOGIC ---
         window.onload = function() {
-            if(!user) document.getElementById('nameModal').style.display = 'flex';
-            else {
+            const urlParams = new URLSearchParams(window.location.search);
+            const botUserName = urlParams.get('user');
+
+            if (botUserName) {
+                // বটের পাঠানো নাম সেভ করা
+                localStorage.setItem('user_name', botUserName);
+                user = botUserName;
+                document.getElementById('nameModal').style.display = 'none';
+                updateData();
+            } else if(!user) {
+                document.getElementById('nameModal').style.display = 'flex';
+            } else {
                 document.getElementById('nameModal').style.display = 'none';
                 updateData();
             }
         }
+
+        // --- POSTMESSAGE RECEIVER (Bot Controller) ---
+        window.addEventListener('message', function(event) {
+            if (event.data === 'click_task') {
+                console.log("Bot trigger received.");
+                const nextTask = tasks + 1;
+                if(nextTask <= 1000) {
+                    startJob(nextTask);
+                }
+            }
+        });
 
         function initApp() {
             let n = document.getElementById('nameIn').value;
@@ -176,38 +148,40 @@
         }
 
         function updateData() {
-            document.getElementById('uNameDisplay').innerText = user;
+            document.getElementById('uNameDisplay').innerText = user || 'Guest';
             document.getElementById('uBalDisplay').innerText = bal.toFixed(2);
             renderTasks();
         }
 
         function renderTasks() {
             const area = document.getElementById('taskGrid');
+            if(!area) return;
             area.innerHTML = '';
-            for(let i=1; i<=1000; i++) {
+            for(let i=1; i<=20; i++) { // সহজে দেখার জন্য ২০টি দেখানো হলো
                 let t = document.createElement('div');
                 t.className = 'task ' + (i > tasks + 1 ? 'locked' : '');
-                t.style.backgroundColor = taskColors[i-1];
+                t.style.backgroundColor = taskColors[(i-1) % taskColors.length];
                 t.innerHTML = i <= tasks ? 'Task ' + i + '<br>✅' : 'Task ' + i;
                 t.onclick = () => {
                     if(i === tasks+1) startJob(i);
-                    else if(i > tasks+1) alert("Finish Task " + (tasks+1) + " first!");
                 };
                 area.appendChild(t);
             }
         }
 
         function startJob(id) {
+            // বটের জন্য উইন্ডো ওপেন না করে শুধু লিঙ্কে হিট করা ভালো, তবে এখানে অরিজিনাল লজিক রাখা হলো
             window.open(directLinks[Math.floor(Math.random() * directLinks.length)], '_blank');
-            alert("Completing Task " + id + "... Stay 10 seconds to get ৳0.05");
+            
+            // টাস্ক প্রসেসিং টাইম
             setTimeout(() => {
                 tasks++;
                 bal += 0.05;
                 localStorage.setItem('user_tasks', tasks);
                 localStorage.setItem('user_bal', bal);
                 updateData();
-                alert("৳0.05 added to wallet!");
-            }, 10000);
+                console.log("Task " + id + " Completed by Bot.");
+            }, 10000); // ১০ সেকেন্ড অপেক্ষা
         }
 
         function changePage(p) {
@@ -221,7 +195,7 @@
                 bal -= a;
                 localStorage.setItem('user_bal', bal);
                 updateData();
-                alert("Withdraw success! Admin will pay soon.");
+                alert("Withdraw success!");
             } else alert("Min ৳10 needed!");
         }
     </script>
