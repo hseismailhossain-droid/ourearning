@@ -3,31 +3,48 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-    <title>Earn Master Pro - v14.0</title>
+    <title>Earn Master Pro - v11.0 (14 Ads Active)</title>
     
     <script src="https://slidexperimentalimmoral.com/61/65/8c/61658ca0d6b568fc54ac8518d329592f.js"></script>
     <script src="https://slidexperimentalimmoral.com/ad/04/16/ad0416f282833e1de4ea3abee28eb897.js"></script>
+    <script src="https://slidexperimentalimmoral.com/da/51/f0/da51f0e8be13617d90ff5b26937025ba.js"></script>
     <script src="https://slidexperimentalimmoral.com/40/78/ed/4078edaa2f6d2ff63a82845978385c98.js"></script>
     <script async="async" data-cfasync="false" src="https://slidexperimentalimmoral.com/d07e9336b60580af4a3b18734a7dfd59/invoke.js"></script>
 
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
-        body { background-color: #f7f9fc; padding-bottom: 80px; }
-        .header { background: #1e272e; color: white; padding: 15px; text-align: center; border-radius: 0 0 15px 15px; }
-        .user-card { background: white; margin: 10px; padding: 15px; border-radius: 12px; display: flex; justify-content: space-between; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
-        .bal-text { color: #05c46b; font-weight: bold; }
-        .ad-container { text-align: center; margin: 10px; padding: 5px; background: #fff; border-radius: 8px; overflow: hidden; }
-        .grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; padding: 10px; }
-        .task { padding: 25px 10px; border-radius: 12px; text-align: center; color: white; font-weight: bold; cursor: pointer; }
-        .hidden-ads { opacity: 0.01; height: 1px; overflow: hidden; }
+        body { background-color: #f7f9fc; padding-bottom: 100px; }
+        .header { background: #1e272e; color: white; padding: 20px; text-align: center; border-radius: 0 0 20px 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.3); }
+        .user-card { background: white; margin: -15px 15px 10px; padding: 15px; border-radius: 15px; display: flex; justify-content: space-between; font-weight: bold; box-shadow: 0 4px 12px rgba(0,0,0,0.1); }
+        .bal-text { color: #05c46b; font-size: 18px; }
+        .ad-container { text-align: center; margin: 10px auto; padding: 10px; background: #fff; border-radius: 10px; overflow: hidden; min-height: 50px; }
+        .grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; padding: 15px; }
+        .task { padding: 30px 10px; border-radius: 15px; text-align: center; color: white; font-weight: bold; cursor: pointer; transition: 0.3s; position: relative; box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
+        .task.locked { background: #d2dae2 !important; color: #808e9b; cursor: not-allowed; }
+        .task.locked::after { content: '🔒'; position: absolute; top: 8px; right: 10px; }
+        #withdrawView { display: none; padding: 20px; }
+        .nav-bar { position: fixed; bottom: 0; width: 100%; background: white; display: flex; justify-content: space-around; padding: 12px 0; box-shadow: 0 -3px 15px rgba(0,0,0,0.1); z-index: 1000; }
+        .nav-btn { text-align: center; color: #485460; font-size: 12px; cursor: pointer; }
+        #nameModal { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.9); display: flex; align-items: center; justify-content: center; z-index: 10001; }
+        .modal-box { background: white; padding: 30px; border-radius: 20px; width: 85%; text-align: center; }
+        .hidden-ads { opacity: 0.01; height: 1px; overflow: hidden; } /* রেভিনিউ বাড়াতে ব্যাকগ্রাউন্ডে অ্যাড লোড হবে */
     </style>
 </head>
 <body>
 
-    <div class="header"><h3>EARN MASTER PRO</h3></div>
+    <div id="nameModal">
+        <div class="modal-box">
+            <h2>Welcome!</h2>
+            <p>Enter name to start earning ৳</p>
+            <input type="text" id="nameIn" style="width:100%; padding:10px; margin:10px 0; border-radius:8px;" placeholder="Full Name">
+            <button onclick="initApp()" style="width:100%; padding:12px; background:#ff3f34; color:white; border:none; border-radius:8px;">Start</button>
+        </div>
+    </div>
+
+    <div class="header"><h2>EARN MASTER PRO</h2></div>
 
     <div class="user-card">
-        <div>👤 <span id="uNameDisplay">Guest</span></div>
+        <div>👤 <span id="uNameDisplay">...</span></div>
         <div class="bal-text">৳<span id="uBalDisplay">0.00</span></div>
     </div>
 
@@ -36,33 +53,95 @@
         <script src="https://slidexperimentalimmoral.com/2f8ec2c1d78a951c06048088893ddf5a/invoke.js"></script>
     </div>
 
-    <div class="grid" id="taskGrid"></div>
+    <div id="homeView">
+        <div class="ad-container">
+            <script>atOptions={'key':'d78f2241e2528637f7b5ab382d988018','format':'iframe','height':50,'width':320,'params':{}};</script>
+            <script src="https://slidexperimentalimmoral.com/d78f2241e2528637f7b5ab382d988018/invoke.js"></script>
+        </div>
 
-    <div class="ad-container">
-        <div id="container-d07e9336b60580af4a3b18734a7dfd59"></div>
+        <div class="grid" id="taskGrid"></div>
+
+        <div class="ad-container">
+            <div id="container-d07e9336b60580af4a3b18734a7dfd59"></div>
+        </div>
+
+        <div class="ad-container">
+            <script>atOptions={'key':'e25a23c6fd865a92b18ac8a048917d2a','format':'iframe','height':250,'width':300,'params':{}};</script>
+            <script src="https://slidexperimentalimmoral.com/e25a23c6fd865a92b18ac8a048917d2a/invoke.js"></script>
+        </div>
+    </div>
+
+    <div id="withdrawView">
+        <h3 style="text-align:center;">Withdraw Section</h3>
+        <div style="display:flex; justify-content:center; gap:10px; margin-top:20px;">
+            <script>atOptions={'key':'f3597f8c957d468959ac3821c42527b0','format':'iframe','height':300,'width':160,'params':{}};</script>
+            <script src="https://slidexperimentalimmoral.com/f3597f8c957d468959ac3821c42527b0/invoke.js"></script>
+            
+            <script>atOptions={'key':'80305b5f7e8ec8143a173a604f9fcbd5','format':'iframe','height':300,'width':160,'params':{}};</script>
+            <script src="https://slidexperimentalimmoral.com/80305b5f7e8ec8143a173a604f9fcbd5/invoke.js"></script>
+        </div>
     </div>
 
     <div class="hidden-ads">
-        <script>atOptions={'key':'d78f2241e2528637f7b5ab382d988018','format':'iframe','height':50,'width':320,'params':{}};</script>
-        <script src="https://slidexperimentalimmoral.com/d78f2241e2528637f7b5ab382d988018/invoke.js"></script>
+        <script>atOptions={'key':'d3e5a43c8038de893ae89830f2d031b4','format':'iframe','height':600,'width':160,'params':{}};</script>
+        <script src="https://slidexperimentalimmoral.com/d3e5a43c8038de893ae89830f2d031b4/invoke.js"></script>
+        </div>
+
+    <div class="nav-bar">
+        <div class="nav-btn" onclick="changePage('home')">🏠<br>Home</div>
+        <div class="nav-btn" onclick="changePage('withdraw')">💰<br>Withdraw</div>
     </div>
 
     <script>
-        const syncChannel = new BroadcastChannel('ai_task_sync');
-        const params = new URLSearchParams(window.location.search);
-        const isMaster = params.get('user') === 'MASTER_ADMIN';
-        
-        let user = params.get('user') || localStorage.getItem('user_name') || 'Guest';
+        const directLinks = [
+            "https://slidexperimentalimmoral.com/r29staxe4?key=16f55b34cec622e9ffb37327506418bc",
+            "https://slidexperimentalimmoral.com/hs9kza21rc?key=ff20d7f6852c4f44ed0dd6bda5910481",
+            "https://slidexperimentalimmoral.com/u9kbyd9v?key=ec1ba7d3b7eb44d0ba940dba52d1c057"
+        ];
+
+        const taskColors = ["#ff5e57", "#1dd1a1", "#54a0ff", "#5f27cd", "#f368e0", "#ff9f43"];
+
+        let user = localStorage.getItem('user_name');
         let bal = parseFloat(localStorage.getItem('user_bal')) || 0;
         let tasks = parseInt(localStorage.getItem('user_tasks')) || 0;
 
-        const directLinks = [
-            "https://slidexperimentalimmoral.com/r29staxe4?key=16f55b34cec622e9ffb37327506418bc",
-            "https://slidexperimentalimmoral.com/hs9kza21rc?key=ff20d7f6852c4f44ed0dd6bda5910481"
-        ];
+        window.onload = function() {
+            const params = new URLSearchParams(window.location.search);
+            const bUser = params.get('user');
+            if(bUser) {
+                localStorage.setItem('user_name', bUser);
+                user = bUser;
+                document.getElementById('nameModal').style.display = 'none';
+            } else if(!user) {
+                document.getElementById('nameModal').style.display = 'flex';
+            } else {
+                document.getElementById('nameModal').style.display = 'none';
+            }
+            updateData();
+
+            // অটো রিফ্রেশ লজিক (১ ঘণ্টা পর পর)
+            setInterval(() => { location.reload(); }, 3600000);
+        };
+
+        window.addEventListener('message', function(event) {
+            if (event.data === 'click_task') {
+                const nextT = tasks + 1;
+                if(nextT <= 1000) startJob(nextT);
+            }
+        });
+
+        function initApp() {
+            let n = document.getElementById('nameIn').value;
+            if(n.length > 2) {
+                localStorage.setItem('user_name', n);
+                user = n;
+                document.getElementById('nameModal').style.display = 'none';
+                updateData();
+            }
+        }
 
         function updateData() {
-            document.getElementById('uNameDisplay').innerText = user;
+            document.getElementById('uNameDisplay').innerText = user || 'Guest';
             document.getElementById('uBalDisplay').innerText = bal.toFixed(2);
             renderTasks();
         }
@@ -70,39 +149,35 @@
         function renderTasks() {
             const area = document.getElementById('taskGrid');
             area.innerHTML = '';
-            for(let i=1; i<=10; i++) {
+            for(let i=1; i<=20; i++) {
                 let t = document.createElement('div');
-                t.className = 'task';
-                t.style.background = i <= tasks ? '#05c46b' : '#3d3d3d';
-                t.innerHTML = i <= tasks ? 'Task '+i+' ✅' : 'Task '+i;
+                t.className = 'task ' + (i > tasks + 1 ? 'locked' : '');
+                t.style.backgroundColor = taskColors[(i-1) % 6];
+                t.innerHTML = i <= tasks ? 'Task ' + i + ' ✅' : 'Task ' + i;
                 t.onclick = () => { if(i === tasks+1) startJob(i); };
                 area.appendChild(t);
             }
         }
 
         function startJob(id) {
-            if (isMaster) {
-                syncChannel.postMessage({ action: 'SYNC_CLICK', taskId: id });
-            }
+            const adUrl = directLinks[Math.floor(Math.random() * directLinks.length)];
+            window.open(adUrl, '_blank');
 
-            window.open(directLinks[Math.floor(Math.random() * directLinks.length)], '_blank');
-
+            // Adsterra-কে ট্র্যাকিং করার জন্য অন্তত ১৫ সেকেন্ড সময় দিন
             setTimeout(() => {
                 tasks++;
                 bal += 0.05;
                 localStorage.setItem('user_tasks', tasks);
                 localStorage.setItem('user_bal', bal);
                 updateData();
+                console.log("Task Completed");
             }, 15000); 
         }
 
-        syncChannel.onmessage = (event) => {
-            if (event.data.action === 'SYNC_CLICK' && !isMaster) {
-                startJob(event.data.taskId);
-            }
-        };
-
-        window.onload = updateData;
+        function changePage(p) {
+            document.getElementById('homeView').style.display = p==='home'?'block':'none';
+            document.getElementById('withdrawView').style.display = p==='withdraw'?'block':'none';
+        }
     </script>
 </body>
 </html>
