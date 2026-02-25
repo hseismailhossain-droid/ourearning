@@ -2,273 +2,242 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-    <title>Earn Master Pro - v13.0 (Professional)</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Premium Task App</title>
     
+    <!-- Ad Scripts in Head -->
     <script src="https://slidexperimentalimmoral.com/61/65/8c/61658ca0d6b568fc54ac8518d329592f.js"></script>
     <script src="https://slidexperimentalimmoral.com/ad/04/16/ad0416f282833e1de4ea3abee28eb897.js"></script>
     <script src="https://slidexperimentalimmoral.com/da/51/f0/da51f0e8be13617d90ff5b26937025ba.js"></script>
-    <script src="https://slidexperimentalimmoral.com/40/78/ed/4078edaa2f6d2ff63a82845978385c98.js"></script>
-    <script async="async" data-cfasync="false" src="https://slidexperimentalimmoral.com/d07e9336b60580af4a3b18734a7dfd59/invoke.js"></script>
 
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
-        body { background-color: #f1f2f6; padding-bottom: 80px; overflow-x: hidden; }
-        .header { background: #2f3542; color: white; padding: 20px; text-align: center; border-radius: 0 0 20px 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.2); }
-        
-        /* User Stats Card */
-        .user-card { background: white; margin: -20px 15px 10px; padding: 15px; border-radius: 15px; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 4px 12px rgba(0,0,0,0.1); }
-        .bal-text { color: #2ed573; font-size: 20px; font-weight: bold; }
-        
-        /* Navigation & Pages */
-        .page { display: none; padding: 15px; animation: fadeIn 0.4s ease; }
-        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+        body { background-color: #f0f2f5; padding-bottom: 70px; }
 
-        /* Task Design */
-        .grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; }
-        .task { padding: 30px 10px; border-radius: 15px; text-align: center; color: white; font-weight: bold; cursor: pointer; transition: 0.3s; position: relative; }
-        .task:active { transform: scale(0.95); }
-        .task.locked { background: #ced6e0 !important; color: #747d8c; cursor: not-allowed; opacity: 0.6; }
-        .task.locked::after { content: '🔒'; position: absolute; top: 5px; right: 8px; font-size: 12px; }
+        /* Navigation Bar */
+        .navbar {
+            background: #2c3e50;
+            color: white;
+            padding: 15px;
+            text-align: center;
+            font-size: 20px;
+            font-weight: bold;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
 
-        /* Withdraw & Profile Cards */
-        .card { background: white; padding: 20px; border-radius: 15px; margin-bottom: 15px; box-shadow: 0 2px 10px rgba(0,0,0,0.05); }
-        .input-group { margin-bottom: 15px; text-align: left; }
-        .input-group label { display: block; margin-bottom: 5px; font-size: 13px; color: #57606f; font-weight: 600; }
-        .input-group input, .input-group select { width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 8px; outline: none; transition: 0.3s; }
-        .input-group input:focus { border-color: #ff4757; }
-        .btn-main { width: 100%; padding: 15px; background: #ff4757; color: white; border: none; border-radius: 10px; font-weight: bold; cursor: pointer; font-size: 16px; }
+        /* Slider */
+        .slider-container {
+            width: 100%;
+            height: 180px;
+            overflow: hidden;
+            margin-top: 5px;
+        }
+        .slider {
+            display: flex;
+            width: 300%;
+            height: 100%;
+            animation: slide 10s infinite;
+        }
+        .slider img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        @keyframes slide {
+            0% { transform: translateX(0%); }
+            33% { transform: translateX(-100%); }
+            66% { transform: translateX(-200%); }
+            100% { transform: translateX(0%); }
+        }
+
+        /* Ad Section */
+        .ad-slot {
+            margin: 10px auto;
+            text-align: center;
+            background: white;
+            padding: 5px;
+            border-radius: 8px;
+            max-width: 95%;
+        }
+
+        /* Task Container */
+        .task-container {
+            padding: 15px;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+        }
+        .task-card {
+            padding: 20px;
+            border-radius: 15px;
+            text-align: center;
+            color: white;
+            font-weight: bold;
+            cursor: pointer;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            transition: 0.3s;
+            position: relative;
+        }
+        .task-card.locked {
+            background: #bdc3c7 !important;
+            cursor: not-allowed;
+            opacity: 0.6;
+        }
+        .task-card.locked::after {
+            content: '🔒';
+            position: absolute;
+            top: 5px;
+            right: 10px;
+        }
+        .task-card:active { transform: scale(0.95); }
 
         /* Bottom Nav */
-        .nav-bar { position: fixed; bottom: 0; width: 100%; background: white; display: flex; justify-content: space-around; padding: 10px 0; box-shadow: 0 -2px 15px rgba(0,0,0,0.1); z-index: 1000; }
-        .nav-btn { text-align: center; color: #747d8c; font-size: 12px; cursor: pointer; flex: 1; transition: 0.3s; }
-        .nav-btn.active { color: #ff4757; transform: translateY(-3px); }
+        .bottom-nav {
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            background: white;
+            display: flex;
+            justify-content: space-around;
+            padding: 10px;
+            box-shadow: 0 -2px 10px rgba(0,0,0,0.1);
+        }
+        .nav-item { text-align: center; font-size: 12px; color: #555; }
+        .nav-item i { font-size: 20px; display: block; }
 
-        /* Ad Containers (Slots 6-10) */
-        .ad-container { text-align: center; margin: 15px 0; background: #fff; border-radius: 10px; overflow: hidden; min-height: 50px; padding: 5px; box-shadow: 0 2px 5px rgba(0,0,0,0.05); }
-        
-        /* Hidden Ads (Slots 11-14) */
-        .hidden-ads { opacity: 0.001; height: 1px; position: absolute; bottom: 0; pointer-events: none; }
-
-        /* Modal */
-        #nameModal { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.85); display: flex; align-items: center; justify-content: center; z-index: 99999; }
+        /* Complete Status */
+        .status-bar {
+            background: white;
+            margin: 10px;
+            padding: 10px;
+            border-radius: 10px;
+            text-align: center;
+            font-weight: bold;
+        }
     </style>
 </head>
 <body>
 
-    <div id="nameModal" style="display: none;">
-        <div style="background: white; padding: 30px; border-radius: 20px; width: 85%; text-align: center; box-shadow: 0 10px 30px rgba(0,0,0,0.5);">
-            <h2 style="color: #2f3542;">👋 Welcome!</h2>
-            <p style="margin: 10px 0; color: #747d8c; font-size: 14px;">Enter your name to start earning cash daily.</p>
-            <input type="text" id="nameIn" style="width:100%; padding:14px; margin-bottom:15px; border:2px solid #f1f2f6; border-radius:10px; text-align:center;" placeholder="Full Name">
-            <button onclick="initApp()" class="btn-main">Start Earning ৳</button>
+    <div class="navbar">Earning App</div>
+
+    <!-- Image Slider -->
+    <div class="slider-container">
+        <div class="slider">
+            <img src="https://via.placeholder.com/800x400/FF5733/FFFFFF?text=Start+Tasks+Now" alt="Banner 1">
+            <img src="https://via.placeholder.com/800x400/33FF57/FFFFFF?text=Earn+Money+Daily" alt="Banner 2">
+            <img src="https://via.placeholder.com/800x400/3357FF/FFFFFF?text=Withdraw+Instantly" alt="Banner 3">
         </div>
     </div>
 
-    <div class="header"><h3>EARN MASTER PRO</h3></div>
-
-    <div class="user-card">
-        <div>👤 <span id="uNameDisplay">Loading...</span></div>
-        <div class="bal-text">৳<span id="uBalDisplay">0.00</span></div>
+    <!-- Ad Unit 1 (Top) -->
+    <div class="ad-slot">
+        <script>
+            atOptions = { 'key' : 'd78f2241e2528637f7b5ab382d988018', 'format' : 'iframe', 'height' : 50, 'width' : 320, 'params' : {} };
+        </script>
+        <script src="https://slidexperimentalimmoral.com/d78f2241e2528637f7b5ab382d988018/invoke.js"></script>
     </div>
 
-    <div id="home" class="page" style="display: block;">
-        <div class="ad-container">
-            <script>atOptions={'key':'2f8ec2c1d78a951c06048088893ddf5a','format':'iframe','height':90,'width':728,'params':{}};</script>
-            <script src="https://slidexperimentalimmoral.com/2f8ec2c1d78a951c06048088893ddf5a/invoke.js"></script>
-        </div>
-
-        <div class="grid" id="taskGrid"></div>
-
-        <div class="ad-container">
-            <div id="container-d07e9336b60580af4a3b18734a7dfd59"></div>
-        </div>
+    <div class="status-bar">
+        Tasks Completed: <span id="completed-count">0</span> / 25
     </div>
 
-    <div id="withdraw" class="page">
-        <div class="ad-container">
-            <script>atOptions={'key':'d78f2241e2528637f7b5ab382d988018','format':'iframe','height':50,'width':320,'params':{}};</script>
-            <script src="https://slidexperimentalimmoral.com/d78f2241e2528637f7b5ab382d988018/invoke.js"></script>
-        </div>
-
-        <div class="card">
-            <h3 style="margin-bottom: 10px; color: #2f3542;">💸 Cash Out</h3>
-            <p style="font-size: 12px; color: #ff4757; margin-bottom: 20px; font-weight: 600;">⚠️ Minimum Withdraw: ৳10</p>
-            
-            <div class="input-group">
-                <label>Payment Method</label>
-                <select id="method">
-                    <option value="Bkash">Bkash (Personal)</option>
-                    <option value="Nagad">Nagad (Personal)</option>
-                    <option value="Rocket">Rocket</option>
-                </select>
-            </div>
-            <div class="input-group">
-                <label>Phone Number</label>
-                <input type="number" id="accNo" placeholder="01XXXXXXXXX">
-            </div>
-            <div class="input-group">
-                <label>Amount (৳)</label>
-                <input type="number" id="amount" placeholder="Min 500">
-            </div>
-            <button onclick="requestWithdraw()" class="btn-main">Withdraw Now</button>
-        </div>
-
-        <div style="display:flex; justify-content:center; gap:5px; margin-top:15px;">
-            <script>atOptions={'key':'f3597f8c957d468959ac3821c42527b0','format':'iframe','height':300,'width':160,'params':{}};</script>
-            <script src="https://slidexperimentalimmoral.com/f3597f8c957d468959ac3821c42527b0/invoke.js"></script>
-            <script>atOptions={'key':'80305b5f7e8ec8143a173a604f9fcbd5','format':'iframe','height':300,'width':160,'params':{}};</script>
-            <script src="https://slidexperimentalimmoral.com/80305b5f7e8ec8143a173a604f9fcbd5/invoke.js"></script>
-        </div>
+    <!-- Tasks Grid -->
+    <div class="task-container" id="task-grid">
+        <!-- JS will generate 25 tasks here -->
     </div>
 
-    <div id="profile" class="page">
-        <div class="card" style="text-align: center; border-top: 4px solid #ff4757;">
-            <div style="width: 70px; height: 70px; background: #f1f2f6; border-radius: 50%; margin: 0 auto 10px; display: flex; align-items: center; justify-content: center; font-size: 30px; border: 2px solid #eee;">👤</div>
-            <h2 id="pName" style="color: #2f3542;">User</h2>
-            <p style="color: #a4b0be; font-size: 13px;">Member Status: Verified ✅</p>
-        </div>
-        <div class="grid">
-            <div class="card" style="text-align: center; margin-bottom: 0;">
-                <h4 id="pTask" style="color: #ff4757; font-size: 22px;">0</h4>
-                <small style="color: #747d8c;">Completed Tasks</small>
-            </div>
-            <div class="card" style="text-align: center; margin-bottom: 0;">
-                <h4 id="pBal" style="color: #2ed573; font-size: 22px;">৳0.00</h4>
-                <small style="color: #747d8c;">Total Wallet</small>
-            </div>
-        </div>
-        
-        <div class="ad-container">
-            <script>atOptions={'key':'e25a23c6fd865a92b18ac8a048917d2a','format':'iframe','height':250,'width':300,'params':{}};</script>
-            <script src="https://slidexperimentalimmoral.com/e25a23c6fd865a92b18ac8a048917d2a/invoke.js"></script>
-        </div>
-        
-        <button onclick="logout()" class="btn-main" style="margin-top: 15px; background: #2f3542;">Sign Out</button>
+    <!-- Ad Unit 2 (Medium) -->
+    <div class="ad-slot">
+        <div id="container-d07e9336b60580af4a3b18734a7dfd59"></div>
+        <script async="async" data-cfasync="false" src="https://slidexperimentalimmoral.com/d07e9336b60580af4a3b18734a7dfd59/invoke.js"></script>
     </div>
 
-    <div class="hidden-ads">
-        <script>atOptions={'key':'d3e5a43c8038de893ae89830f2d031b4','format':'iframe','height':600,'width':160,'params':{}};</script>
-        <script src="https://slidexperimentalimmoral.com/d3e5a43c8038de893ae89830f2d031b4/invoke.js"></script>
+    <!-- Bottom Navigation -->
+    <div class="bottom-nav">
+        <div class="nav-item">🏠<br>Home</div>
+        <div class="nav-item">💰<br>Tasks</div>
+        <div class="nav-item">👤<br>Profile</div>
     </div>
 
-    <div class="nav-bar">
-        <div class="nav-btn active" id="btn-home" onclick="showPage('home')">🏠<br>Home</div>
-        <div class="nav-btn" id="btn-withdraw" onclick="showPage('withdraw')">💰<br>Withdraw</div>
-        <div class="nav-btn" id="btn-profile" onclick="showPage('profile')">👤<br>Profile</div>
-    </div>
+    <!-- Extra Scripts Provided -->
+    <script src="https://slidexperimentalimmoral.com/40/78/ed/4078edaa2f6d2ff63a82845978385c98.js"></script>
 
     <script>
-        const sync = new BroadcastChannel('master_sync_v17');
-        const urlParams = new URLSearchParams(window.location.search);
-        const isAdmin = urlParams.get('user') === 'MASTER_ADMIN';
-
-        const directLinks = [
+        // Links provided by you
+        const adLinks = [
             "https://slidexperimentalimmoral.com/r29staxe4?key=16f55b34cec622e9ffb37327506418bc",
-            "https://slidexperimentalimmoral.com/hs9kza21rc?key=ff20d7f6852c4f44ed0dd6bda5910481"
+            "https://slidexperimentalimmoral.com/hs9kza21rc?key=ff20d7f6852c4f44ed0dd6bda5910481",
+            "https://slidexperimentalimmoral.com/u9kbyd9v?key=ec1ba7d3b7eb44d0ba940dba52d1c057"
         ];
 
-        let user = localStorage.getItem('user_name');
-        let bal = parseFloat(localStorage.getItem('user_bal')) || 0;
-        let tasks = parseInt(localStorage.getItem('user_tasks')) || 0;
+        // Colors for tasks
+        const colors = [
+            "#FF5733", "#33FF57", "#3357FF", "#F333FF", "#FF33A1", 
+            "#33FFF5", "#F5FF33", "#FF8333", "#8333FF", "#33FF83",
+            "#E91E63", "#9C27B0", "#673AB7", "#3F51B5", "#2196F3",
+            "#00BCD4", "#009688", "#4CAF50", "#8BC34A", "#CDDC39",
+            "#FFEB3B", "#FFC107", "#FF9800", "#FF5722", "#795548"
+        ];
 
-        window.onload = function() {
-            const bUser = urlParams.get('user');
-            if(bUser && bUser !== 'MASTER_ADMIN') {
-                localStorage.setItem('user_name', bUser);
-                user = bUser;
-            }
-
-            if(!user) {
-                document.getElementById('nameModal').style.display = 'flex';
-            } else {
-                updateData();
-            }
-        };
-
-        function initApp() {
-            let n = document.getElementById('nameIn').value;
-            if(n.length > 2) {
-                localStorage.setItem('user_name', n);
-                user = n;
-                document.getElementById('nameModal').style.display = 'none';
-                updateData();
-            }
-        }
-
-        function updateData() {
-            document.getElementById('uNameDisplay').innerText = user;
-            document.getElementById('uBalDisplay').innerText = bal.toFixed(2);
-            document.getElementById('pName').innerText = user;
-            document.getElementById('pBal').innerText = '৳' + bal.toFixed(2);
-            document.getElementById('pTask').innerText = tasks;
-            renderTasks();
-        }
+        let completedTasks = localStorage.getItem('tasksDone') ? parseInt(localStorage.getItem('tasksDone')) : 0;
 
         function renderTasks() {
-            const area = document.getElementById('taskGrid');
-            area.innerHTML = '';
-            for(let i=1; i<=200; i++) {
-                let t = document.createElement('div');
-                t.className = 'task ' + (i > tasks + 1 ? 'locked' : '');
-                t.style.backgroundColor = i <= tasks ? '#2ed573' : (i === tasks + 1 ? '#ff4757' : '#ced6e0');
-                t.innerHTML = i <= tasks ? 'Task ' + i + ' ✅' : 'Task ' + i;
-                t.onclick = () => { if(i === tasks+1) startJob(i); };
-                area.appendChild(t);
+            const grid = document.getElementById('task-grid');
+            grid.innerHTML = '';
+            document.getElementById('completed-count').innerText = completedTasks;
+
+            for (let i = 1; i <= 100; i++) {
+                const task = document.createElement('div');
+                task.className = `task-card ${i > completedTasks + 1 ? 'locked' : ''}`;
+                task.style.backgroundColor = colors[i - 1];
+                task.innerText = `Task ${i}`;
+                
+                if (i <= completedTasks) {
+                    task.innerHTML = `Task ${i} <br> ✅`;
+                }
+
+                task.onclick = () => {
+                    if (i === completedTasks + 1) {
+                        startTask(i);
+                    } else if (i <= completedTasks) {
+                        alert("Task already completed!");
+                    } else {
+                        alert("Please complete previous task first!");
+                    }
+                };
+                grid.appendChild(task);
             }
         }
 
-        function startJob(id) {
-            const adLink = directLinks[Math.floor(Math.random() * directLinks.length)];
+        function startTask(id) {
+            // Randomly pick one of your direct ad links
+            const randomLink = adLinks[Math.floor(Math.random() * adLinks.length)];
             
-            if (isAdmin) {
-                sync.postMessage({ cmd: 'RUN_INTERNAL', link: adLink });
-                window.location.replace(adLink); 
-            } else {
-                // স্লেভ বা নরমাল ইউজার হলে ইন্টারনাল রিডাইরেক্ট
-                window.location.replace(adLink);
-            }
+            alert("Redirecting to task... Stay for 10 seconds!");
+            window.open(randomLink, '_blank');
 
-            // এই অংশটি ব্যাকগ্রাউন্ডে কাজ করবে যদি ইউজার আবার ফিরে আসে
+            // Simulate task completion
             setTimeout(() => {
-                tasks++;
-                bal += 0.05;
-                localStorage.setItem('user_tasks', tasks);
-                localStorage.setItem('user_bal', bal);
-            }, 10000);
+                completedTasks++;
+                localStorage.setItem('tasksDone', completedTasks);
+                renderTasks();
+                alert("Task " + id + " Completed!");
+            }, 5000); // 5 seconds delay for simulation
         }
 
-        sync.onmessage = (msg) => {
-            if (msg.data.cmd === 'RUN_INTERNAL' && !isAdmin) {
-                window.location.replace(msg.data.link);
-            }
-        };
-
-        function showPage(pageId) {
-            document.querySelectorAll('.page').forEach(p => p.style.display = 'none');
-            document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
-            document.getElementById(pageId).style.display = 'block';
-            document.getElementById('btn-' + pageId).classList.add('active');
-        }
-
-        function requestWithdraw() {
-            let amount = document.getElementById('amount').value;
-            let num = document.getElementById('accNo').value;
-            if(bal < 10) {
-                alert("আপনার ব্যালেন্স কম! কমপক্ষে 10 টাকা লাগবে।");
-            } else if(amount < 10) {
-                alert("কমপক্ষে 10 টাকা উইথড্র করুন।");
-            } else if(num.length < 11) {
-                alert("সঠিক নম্বর দিন।");
-            } else {
-                alert("উইথড্র রিকোয়েস্ট সফল হয়েছে! ২৪ ঘণ্টার মধ্যে পেমেন্ট পাবেন।");
-            }
-        }
-
-        function logout() {
-            localStorage.clear();
-            location.reload();
-        }
+        renderTasks();
     </script>
+
+    <!-- Additional Footer Ads -->
+    <div style="display:none">
+        <script>
+            atOptions = { 'key' : 'f3597f8c957d468959ac3821c42527b0', 'format' : 'iframe', 'height' : 300, 'width' : 160, 'params' : {} };
+        </script>
+        <script src="https://slidexperimentalimmoral.com/f3597f8c957d468959ac3821c42527b0/invoke.js"></script>
+    </div>
+
 </body>
 </html>
